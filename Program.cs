@@ -1,35 +1,47 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace MyToDoList
+public class Program
 {
-
-  public class Program
+  public static void CheckAnagram(string word, List<string> words)
   {
-    public static void Main()
+    string original = word;
+    char[] wordChars = word.ToCharArray();
+    Array.Sort(wordChars);
+
+    foreach (string element in words)
     {
-
-      Console.WriteLine("====================================");
-      Console.WriteLine("Welcome to MyToDoList");
-      Console.WriteLine("Would you like to add an item to your list or view your list?( 'A' for Add/ 'V' for View): ");
-      string userInput = Console.ReadLine();
-      if(userInput == "A" || userInput == "a")
+      string myElement = element;
+      char[] listChars = element.ToCharArray();
+      Array.Sort(listChars);
+      if(wordChars.SequenceEqual(listChars))
       {
-        Console.WriteLine("Please enter the description for the new item.");
-        string input = Console.ReadLine();
-        Item item = new Item(input);
-        Console.WriteLine(item.GetDescription()+" has been added to your list.");
-        Main();
-      }else{
-        List<Item> result = Item.GetAll();
-
-        int i = 1;
-        foreach (Item thisItem in result)
-        {
-          Console.WriteLine((i++) + " thing from your list: "  + thisItem.GetDescription());
-        }
-
+        Console.WriteLine("Your original word is: "+original);
+        Console.WriteLine("Anagrams for your word is: "+ myElement);
       }
     }
+  }
+
+  public static void Main()
+  {
+
+    Console.WriteLine("====================================");
+    Console.WriteLine("ANAGRAM CHECKER");
+    Console.WriteLine("Enter a word: ");
+    string userInputFirst = Console.ReadLine();
+    List<string> listOfWords = new List<string>();
+
+    while(true)
+    {
+      Console.WriteLine("Enter a word to compare? [N to exit] ");
+      string userInput = Console.ReadLine();
+      listOfWords.Add(userInput);
+      if(userInput == "N")
+      {
+        break;
+      }
+    }
+    CheckAnagram(userInputFirst, listOfWords);
   }
 }

@@ -1,20 +1,17 @@
-# _To Do List_
+# _Anagram_
 
 #### _2/13/2019_
 
 #### By _**Pavel Zanchuk and Olha Wysocky**_
 
 ## Description
-_This is a program that adds to the list and displays the list._
+_This is a program that tells user if a word is an anagram to another word._
 
 ### Specs
 | Behavior - Plain English | Input | Output |
 | :-------------     | :------------- | :------------- |
-| **Program offers a choice to store in the list** | User input: "A" | Output: ""|
-| **Program offers a choice to display in the list** | User input: "V" | Output: "Clean house"|
-| **Program takes user's input** | User input: "Wash car" | Output: "Wash car"|
-| **Program displays user input** | User input: "Clean house" | Output: "Clean house"|
-
+| **Program checks if word is anagram** | User input: "bread" "beard" | Output: true |
+| **Program checks if partial word is anagram** | User input: "path" "hat" | Output: true|
 
 ## Known Bugs
 

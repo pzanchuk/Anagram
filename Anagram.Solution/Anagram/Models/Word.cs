@@ -1,13 +1,11 @@
-using System;
 using System.Collections.Generic;
 
-namespace MyToDoList
+namespace ToDoList.Models
 {
-  class Item
+  public class Item
   {
     private string _description;
     private static List<Item> _instances = new List<Item> {};
-
 
     public Item (string description)
     {
@@ -25,6 +23,11 @@ namespace MyToDoList
       _description = newDescription;
     }
 
+    public static void ClearAll()
+    {
+      _instances.Clear();
+    }
+    
     public static List<Item> GetAll()
      {
        return _instances;
